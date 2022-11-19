@@ -1,0 +1,77 @@
+import { useState } from "react";
+
+function App() {
+  const [display, setDisplay] = useState(false);
+  const [gender, setGender] = useState("male");
+  const [name, setName] = useState("");
+
+  return (
+    <div>
+      <div
+        style={{
+          textAlign: "center",
+          padding: "80px 0",
+          backgroundColor: "aliceblue",
+        }}
+      >
+        <h2 style={{ marginBottom: 60, color: "blueviolet" }}>
+          Conditional Rendering and Styling Example
+        </h2>
+        <div style={{ margin: "30px 0" }}>
+          <label for="name" style={{ marginRight: 30 }}>
+            <b>Name:</b>
+          </label>
+          <input
+            type="text"
+            id="name"
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <div style={{ marginBottom: 30 }}>
+          <label for="gender" style={{ marginRight: 30 }}>
+            <b>Gender:</b>
+          </label>
+          <input
+            type="radio"
+            value="male"
+            name="gender"
+            onChange={(e) => setGender(e.target.value)}
+          />
+          Male
+          <input
+            type="radio"
+            value="female"
+            name="gender"
+            onChange={(e) => setGender(e.target.value)}
+            style={{ marginLeft: 35 }}
+          />
+          Female
+        </div>
+        {/* single condition rendering */}
+        {name !== "" && (
+          <button onClick={() => setDisplay(!display)}>
+            {display ? "Hide Message" : "Show Message"}
+          </button>
+          
+        )}
+      </div>
+      {/* single condition rendering */}
+      {display && (
+        <p style={{ fontSize: 28, textAlign: "center" }}>
+          {/* multiple condition rendering */}
+          Hello, {gender === "male" ? "Mr, " : "Mrs, "}
+          <b
+            style={{
+              // multiple condition styling
+              backgroundColor: gender === "male" ? "cornflowerblue" : "pink",
+            }}
+          >
+            {name}
+          </b>
+        </p>
+      )}
+    </div>
+  );
+}
+
+export default App;

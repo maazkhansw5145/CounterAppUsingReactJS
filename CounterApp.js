@@ -1,6 +1,6 @@
 import { useState } from "react";
 import './App.css'
-function App() {
+function CounterApp() {
   const [backgroundColor, setBackgroundColor] = useState("white");
   const [count, setCount] = useState(0);
 
@@ -37,4 +37,4 @@ function App() {
   );
 }
 
-export default App;
+export default CounterApp;
